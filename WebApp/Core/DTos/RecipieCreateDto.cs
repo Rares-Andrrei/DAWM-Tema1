@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLayer.DTos
+namespace Core.DTos
 {
-    public class RecipieDto
+    public class RecipieCreateDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public RecipieType Type { get; set; }
+        public string Type { get; set; }
         private List<string> _ingredients;
         public List<string> Ingredients
         {

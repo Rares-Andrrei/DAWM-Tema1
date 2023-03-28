@@ -31,5 +31,15 @@ namespace DataLayer.Repositories
             }
             return false;
         }
+        public bool CreateRecipie(Recipie recipie)
+        {
+            var recipieExists = DbContext._recipies.FirstOrDefault(r => r.Id == recipie.Id);
+            if (recipieExists != null)
+            {
+                return false;
+            }
+            DbContext._recipies.Add(recipie);
+            return true;
+        }
     }
 }

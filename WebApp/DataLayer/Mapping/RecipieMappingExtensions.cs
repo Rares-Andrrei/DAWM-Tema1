@@ -11,7 +11,7 @@ namespace DataLayer.Mapping
 {
     public static class RecipieMappingExtensions
     {
-        static RecipieDto ToRecipieDto(this Recipie recipie)
+        public static RecipieDto ToRecipieDto(this Recipie recipie)
         {
             if (recipie == null)
             {
