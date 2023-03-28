@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Core.Services;
 using DataLayer.Entities;
+using Core.DTos;
 
 namespace WebApp.Controllers
 {
@@ -19,6 +20,18 @@ namespace WebApp.Controllers
         {
             var results = _recipieService.GetAll();
             return Ok(results);
+        }
+        [HttpPatch("edit-name")]
+        public ActionResult<bool> GetById([FromBody] RecipieUpdateDto studentUpdateModel)
+        {
+            var result = _recipieService.EditName(studentUpdateModel);
+
+            if (!result)
+            {
+                return BadRequest("Student could not be updated.");
+            }
+
+            return result;
         }
     }
 }

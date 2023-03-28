@@ -1,4 +1,5 @@
-﻿using DataLayer.Entities;
+﻿using Core.DTos;
+using DataLayer.Entities;
 using DataLayer.Repositories;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,20 @@ namespace Core.Services
         {
             var results = _recipieRepository.GetAll();
             return results;
+        }
+        public bool EditName(RecipieUpdateDto payload)
+        {
+            if (payload == null || payload.Name == null)
+            {
+                return false;
+            }
+            var result = _recipieRepository.GetById(payload.Id);
+            if (result == null)
+            {
+                return false;
+            }
+            result.Name = payload.Name;
+            return true;
         }
     }
 }

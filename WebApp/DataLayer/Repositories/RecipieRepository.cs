@@ -14,5 +14,12 @@ namespace DataLayer.Repositories
             var results = DbContext._recipies;
             return results;
         }
+        public Recipie GetById(int recipieId)
+        {
+            var result = DbContext._recipies
+                .Where(e => e.Id == recipieId)
+                .FirstOrDefault();
+            return result;
+        }
     }
 }
