@@ -33,5 +33,14 @@ namespace WebApp.Controllers
 
             return result;
         }
+        [HttpDelete("delete-recipie/{recipieId}")]
+        public ActionResult<bool> DeleteRecipie(int recipieId)
+        {
+            if (_recipieService.DeleteRecipie(recipieId))
+            {
+                return true;
+            }
+            return BadRequest("Recipie not found!");
+        }
     }
 }

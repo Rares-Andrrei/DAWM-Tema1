@@ -36,5 +36,9 @@ namespace Core.Services
             result.Name = payload.Name;
             return true;
         }
+        public bool DeleteRecipie(int id)
+        {
+            return _recipieRepository.DeleteRecipie(id);
+        }
     }
 }

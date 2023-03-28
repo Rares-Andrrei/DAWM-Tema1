@@ -21,5 +21,15 @@ namespace DataLayer.Repositories
                 .FirstOrDefault();
             return result;
         }
+        public bool DeleteRecipie(int id)
+        {
+            var recipie = DbContext._recipies.FirstOrDefault(r => r.Id == id);
+            if (recipie != null)
+            {
+                DbContext._recipies.Remove(recipie);
+                return true;
+            }
+            return false;
+        }
     }
 }
